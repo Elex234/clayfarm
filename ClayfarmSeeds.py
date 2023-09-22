@@ -59,32 +59,28 @@ def findItem(gameID, item):
     year = dayToYear(day) + 1
     return year
 
-def check(gameID, item):
+def checkItem(gameID, item):
     if(findItem(gameID, item) == 1):
         return True
     else:
         return False
 
 def checkSeed(id):
-    if (not check(id, 'Red Cabbage')):
-        return False
-    if (not check(id, 'Truffle')):
-        return False
-    if (not check(id, 'Rabbit\'s Foot')):
-        return False
-    if (not check(id, 'L. Goat Milk')):
-        return False
-    if (not check(id, 'Large Milk')):
-        return False
-    if (not check(id, 'Duck Egg')):
-        return False
-    if ((not check(id, 'Large EggW')) and (not check(id, 'Large EggB'))):
+    if (not checkItem(id, 'Red Cabbage') or
+        not checkItem(id, 'Truffle') or
+        not checkItem(id, 'Rabbit\'s Foot') or
+        not checkItem(id, 'L. Goat Milk') or
+        not checkItem(id, 'Large Milk') or
+        not checkItem(id, 'Duck Egg')):
         return False
     return True
 
 if __name__ == '__main__':
     id = 1412
-    #print('GameID:', gameID)
+
+    # How many seeds do you want? (at least)
+    num_of_seeds = 10
+    seedsFound = 0
 
     bundleAnimal    = ['L. Goat Milk', 'Large Milk', 'Large EggW', 'Large EggB', 'Duck Egg', 'Wool']
     bundleArtisan   = ['Truffle Oil', 'Cloth', 'Goat Cheese', 'Cheese', 'Honey', 'Jelly', 'Apple', 'Apricot', 'Orange', 'Peach', 'Pomegranate', 'Cherry', 'Milk', 'Goat Milk']
@@ -93,10 +89,6 @@ if __name__ == '__main__':
     bundleEnchanter = ['Oak Resin', 'Wine', 'Rabbit\'s Foot', 'Pomegranate Sapling']
     bundleFodder    = ['Wheat', 'Hay', 'Apple Sapling']
     bundleList = [bundleAnimal, bundleChef, bundleDye, bundleEnchanter, bundleArtisan, bundleFodder]
-
-    # How many seeds do you want? (at least)
-    num_of_seeds = 10
-    seedsFound = 0
 
     while(seedsFound < num_of_seeds):
         if(checkSeed(id)):
@@ -121,5 +113,3 @@ if __name__ == '__main__':
             seedsFound += 1
 
         id += 6898990
-
-
