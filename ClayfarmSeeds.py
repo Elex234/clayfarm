@@ -112,4 +112,4 @@ if __name__ == '__main__':
             print(id + 1516 + 1)
             seedsFound += 1
 
-        id += 6898990
+        id += 689890
